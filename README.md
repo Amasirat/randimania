@@ -20,7 +20,7 @@ show-elements, 1 input parameter -> \<group name\>
 
 delete group, 1 input parameter -> \<group name\>
 
-delete elements, 2 input parameres -> \<group name\> \<element\>
+delete element, 2 input parameres -> \<group name\> \<element\>
 
 pull-random, 2 input parameters -> \<group name\> \<number of elements desired as an integer\>
 
