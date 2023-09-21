@@ -14,7 +14,7 @@ add-group, 1 input parameter -> \<name of group\>
 
 add-elements, 2 or more input parameters -> \<group name\> \<element 1\> \<element 2\> ... \<element n\> 
 
-show-groups, 1 input parameter -> \<name of group\>
+show-groups, no input parameters
 
 show-elements, 1 input parameter -> \<group name\>
 

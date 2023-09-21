@@ -63,10 +63,23 @@ def show_elements(group : str):
     
     print(f"elements of {group}:")
     for item in elements:
-        print(item)
+        print(f"-{item}")
 
 # show groups
 def show_groups():
-    pass
+    # appending file names in global directory to groups 
+    # if they are files in order to future proof
+    groups = [g for g in os.listdir(_global.GROUP_DIR) 
+        if os.path.isfile(os.path.join(_global.GROUP_DIR, g))
+    ]
+    # if groups turns out empty
+    if not groups:
+        print("No groups exist")
+    
+    for item in groups:
+       group, _ =  item.split('.')
+       print(f"--{group}")
+
+
 
     

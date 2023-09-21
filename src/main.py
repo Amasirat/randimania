@@ -14,7 +14,6 @@ def main():
             help.help()
         except FileNotFoundError:
             print("non-existing group or directory")
-            help.help()
         except:
             print("unknown error occured")
 
