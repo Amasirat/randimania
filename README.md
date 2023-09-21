@@ -9,13 +9,17 @@ Randomized elements are structured as different groups. The user creates groups 
 \<program name\> \<operation\> \<input parameters\>(seperated by space)
 
 Operations:
+
 add-group, 1 input parameter -> \<name of group\>
+
 add-elements, 2 or more input parameters -> \<group name\> \<element 1\> \<element 2\> ... \<element n\> 
 
-show-groups, 1 input parameter -> \<name of group\> 
+show-groups, 1 input parameter -> \<name of group\>
+
 show-elements, 1 input parameter -> \<group name\>
 
 delete group, 1 input parameter -> \<group name\>
+
 delete elements, 2 input parameres -> \<group name\> \<element\>
 
 pull-random, 2 input parameters -> \<group name\> \<number of elements desired as an integer\>
