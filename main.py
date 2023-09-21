@@ -1,14 +1,14 @@
 import sys
 import modules.help as help
 import modules.core as core
+from modules.parse import parse_arg
 
 def main():
-    try:
-        core.append_element("ghost lines", "drawing")
-    except FileNotFoundError as err:
-        print(err)
-    #if len(sys.argv) <= 1:
-        #help.help()
+    if len(sys.argv) <= 1:
+        help.help()
+    else:
+        parse_arg(sys.argv[1:])
+
 
 if __name__ == "__main__":
     main()
