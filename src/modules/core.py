@@ -15,9 +15,9 @@ def create_group(groupname : str):
         writer.writerow({"id": "id", "element": "elements"})
 
 # this function only counts existing rows in a csv group file, INCLUDING the 0th row
-def row_counter(file) -> int:
+def row_counter(group) -> int:
     count : int = 0
-    dir: str = f"{_global.GROUP_DIR}{file}.csv"
+    dir: str = f"{_global.GROUP_DIR}{group}.csv"
     with open(dir, "r") as read:
         reader = csv.reader(read)
         count += sum(1 for _ in reader)
@@ -37,19 +37,32 @@ def append_element(element: str, group : str):
         raise FileNotFoundError
 
 # show elements of a group to user
-def show_group(group : str):
+def show_elements(group : str):
     dir = f"{_global.GROUP_DIR}{group}.csv"
     # raise exception to caller if group file was not found
     if not os.path.isfile(dir):
         raise FileNotFoundError
+    
+    # exit function if there are no elements
+    if row_counter(group) == 1:
+        print(f"the group '{group}' has no elements")
+        return
     # empty list to store elements from the file
     elements = []
 
     with open(dir, "r") as file:
         reader = csv.DictReader(file, fieldnames=["id", "element"])
         for row in reader:
+            if row["id"] == "id":
+                continue
             elements.append(row["element"])
     
-    print(elements)
+    print(f"elements of {group}:")
+    for item in elements:
+        print(item)
+
+# show groups
+def show_groups():
+    pass
 
     
