@@ -16,8 +16,12 @@ def create_group(groupname : str):
 
 # this function only counts existing rows in a csv group file, INCLUDING the 0th row
 def row_counter(group) -> int:
-    count : int = 0
+# checking if directory exists
     dir: str = f"{_global.GROUP_DIR}{group}.csv"
+    if not os.path.isfile(dir):
+        raise FileNotFoundError
+# starting couting process
+    count : int = 0
     with open(dir, "r") as read:
         reader = csv.reader(read)
         count += sum(1 for _ in reader)
