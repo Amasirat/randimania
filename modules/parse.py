@@ -6,7 +6,7 @@ OPERATIONS = [
     "pull-random",
 ]
 # parses arguments recieved as input
-def parse_arg(arguments : list):
+def parser(arguments : list):
     if len(arguments) < 0:
         raise IndexError # meaning list is of invalid length
     match arguments[0]:
