@@ -15,3 +15,8 @@ add-group, 1 input parameter -> "name of group"
 add-elements, 2 or more input parameters -> "group name" "element 1" "element 2" ... "element n" 
 
 pull-random, 2 input parameters -> "group name" "number of elements desired" 
+
+# Documentation
+Groups are in basic terms just names for files in the system. When creating a group, and .txt file will be created wth elements of each groups being appended to these files. The first element of each of these files will always be the name of the group.
+
+By default, these files are stored in groups/ directory in source file and should be in use **only** by the program.
