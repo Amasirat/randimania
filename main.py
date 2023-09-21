@@ -7,7 +7,12 @@ def main():
     if len(sys.argv) <= 1:
         help.help()
     else:
-        parser(sys.argv[1:])
+        try:
+            parser(sys.argv[1:])
+        except IndexError:
+            print("Invalid argument count")
+        except:
+            print("unknown error occured")
 
 
 if __name__ == "__main__":

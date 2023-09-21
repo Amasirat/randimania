@@ -17,7 +17,7 @@ def parser(arguments : list):
                 groupname = arguments[1]
                 try:
                     core.create_group(groupname)
-                except FileExistsError as error:
+                except FileExistsError:
                     print("group already exists")
                 else:
                     print(f"group {groupname} has been created...")
