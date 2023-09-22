@@ -1,12 +1,11 @@
-from . import _global
 import csv
 import os
-
+GROUP_DIR : str = "src/groups/"
 # opening a group file
 def create_group(groupname : str):
-    dir = f"{_global.GROUP_DIR}{groupname}.csv"
-    if not os.path.isdir(_global.GROUP_DIR):    
-        os.mkdir(_global.GROUP_DIR)
+    dir = f"{GROUP_DIR}{groupname}.csv"
+    if not os.path.isdir(GROUP_DIR):    
+        os.mkdir(GROUP_DIR)
     elif os.path.isfile(dir):
         raise FileExistsError
 # open a file and write the first line
@@ -17,7 +16,7 @@ def create_group(groupname : str):
 # this function only counts existing rows in a csv group file, INCLUDING the 0th row
 def row_counter(group) -> int:
 # checking if directory exists
-    dir: str = f"{_global.GROUP_DIR}{group}.csv"
+    dir: str = f"{GROUP_DIR}{group}.csv"
     if not os.path.isfile(dir):
         raise FileNotFoundError
 # starting couting process
@@ -30,7 +29,7 @@ def row_counter(group) -> int:
 # appends an element to an existing group
 # rasies FileNotFoundError in the case where group.csv was not found
 def append_element(element: str, group : str):
-    dir = f"{_global.GROUP_DIR}{group}.csv"
+    dir = f"{GROUP_DIR}{group}.csv"
     row_count = row_counter(group)
 
     if os.path.isfile(dir):
@@ -42,7 +41,7 @@ def append_element(element: str, group : str):
 
 # show elements of a group to user
 def show_elements(group : str):
-    dir = f"{_global.GROUP_DIR}{group}.csv"
+    dir = f"{GROUP_DIR}{group}.csv"
     # raise exception to caller if group file was not found
     if not os.path.isfile(dir):
         raise FileNotFoundError
@@ -69,8 +68,8 @@ def show_elements(group : str):
 def show_groups():
     # appending file names in global directory to groups 
     # if they are files in order to future proof
-    groups = [g for g in os.listdir(_global.GROUP_DIR) 
-        if os.path.isfile(os.path.join(_global.GROUP_DIR, g))
+    groups = [g for g in os.listdir(GROUP_DIR) 
+        if os.path.isfile(os.path.join(GROUP_DIR, g))
     ]
     # if groups turns out empty
     if not groups:
@@ -79,7 +78,3 @@ def show_groups():
     for item in groups:
        group, _ =  item.split('.')
        print(f"--{group}")
-
-
-
-    

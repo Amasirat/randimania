@@ -1,6 +1,8 @@
+# reading user's command line arguments
 import sys
+# display help message
 import modules.help as help
-import modules.core as core
+# parsing commandline arguments
 from modules.parse import parser
 
 def main():

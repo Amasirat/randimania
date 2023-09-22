@@ -1,6 +1,8 @@
+# core functionality of the program
 from . import core
-from . import _global
+# to display help message
 from . import help
+# for path and directory management
 import os
 
 # function for add-group arg
@@ -16,7 +18,7 @@ def arg_add_group(arg):
 # function for delete-group arg
 def arg_delete_group(arg):
     groupname = arg
-    dir = f"{_global.GROUP_DIR}{groupname}.csv"
+    dir = f"{core.GROUP_DIR}{groupname}.csv"
     if not os.path.isfile(dir):
         raise FileNotFoundError
     
@@ -38,7 +40,7 @@ def arg_delete_group(arg):
 #function for add-elements arg
 def arg_add_elements(args : list):
     group = args[0]
-    group_dir = f"{_global.GROUP_DIR}{group}.csv"
+    group_dir = f"{core.GROUP_DIR}{group}.csv"
     if not os.path.isfile(group_dir):
         raise FileNotFoundError
     for element in args[1:]:
