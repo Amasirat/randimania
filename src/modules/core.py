@@ -1,5 +1,6 @@
 import csv
 import os
+import random
 GROUP_DIR : str = "src/groups/"
 # opening a group file
 def create_group(groupname : str):
@@ -78,3 +79,25 @@ def show_groups():
     for item in groups:
        group, _ =  item.split('.')
        print(f"--{group}")
+       
+# return a random element given a group
+def random_pull(group : str) -> str:
+    dir = os.path.join(GROUP_DIR, f"{group}.csv")
+    if not os.path.isfile(dir):
+        raise FileNotFoundError
+
+    row_count = row_counter(group)
+    return random.randint(1, row_count)
+
+# given an id number it will return the element from the group
+def access_element(group: str, id_num : int):
+    dir = os.path.join(GROUP_DIR, f"{group}.csv")
+    if not os.path.isfile(dir):
+        raise FileNotFoundError
+    with open(dir, "r") as file:
+        reader = csv.DictReader(file, fieldnames=["id", "element"])
+        for row in reader:
+            if row["id"] == id_num:
+                return row["element"]
+    
+        

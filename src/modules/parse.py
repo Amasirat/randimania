@@ -47,6 +47,22 @@ def arg_add_elements(args : list):
         core.append_element(element, group)
     print(f"Elements added to {group}")
 
+# function for random-pull operation
+def arg_pull_random(group : str, loop_count : int):
+    element_ids = set() # empty set that contains random id numbers
+    if loop_count >= core.row_counter(group):
+        print("This group is not great enough to get this many random elements from it")
+        return
+    count = 0 # loop counter
+    while(count < loop_count):
+        id = core.random_pull(group)
+        if id in element_ids:
+            loop_count += 1 
+        else:
+            element_ids.add(id)
+        count += 1
+        
+    print(element_ids)
 # parses arguments recieved as input
 def parser(arguments : list):
     if len(arguments) <= 0:
@@ -75,10 +91,9 @@ def parser(arguments : list):
                 raise IndexError
             else:
                 arg_delete_group(arguments[1])
+        case "pull-random":
+            if len(arguments) != 3:
+                raise IndexError
+            arg_pull_random(arguments[1], int(arguments[2]))
         case _:
             help.help()
-
-
-
-
-
