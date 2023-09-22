@@ -35,7 +35,9 @@ inside the src directory, there is the main.py script, which is the main program
 The modules package contains help, parse, and core modules. 
 
 ----help display's a help message on screen
+
 ----parse contains the parser() function that parses command-line arguments
+
 ----core contains coe functionality of the program. pulling random elements, writing and reading from csv files, etc....
 
 
