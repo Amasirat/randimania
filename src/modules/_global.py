@@ -1,1 +1,0 @@
-GROUP_DIR : str = "src/groups/"
