@@ -62,7 +62,8 @@ def arg_pull_random(group : str, loop_count : int):
             element_ids.add(id)
         count += 1
         
-    print(element_ids)
+    for id in element_ids:
+        print(core.access_element(group, id))
 # parses arguments recieved as input
 def parser(arguments : list):
     if len(arguments) <= 0:

@@ -5,6 +5,8 @@ import modules.help as help
 # parsing commandline arguments
 from modules.parse import parser
 
+import modules.core as core
+
 def main():
     if len(sys.argv) <= 1:
         help.help()
@@ -20,6 +22,7 @@ def main():
             print("Wrong type detected")
         except:
             print("unknown error occured")
+
 
 if __name__ == "__main__":
     main()

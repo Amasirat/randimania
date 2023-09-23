@@ -2,11 +2,11 @@
 
 Simple command-line tool that randomizes n number of elements.
 
-# System
+* System
 
 Randomized elements are structured as different groups. The user creates groups and inputs elements into them, then the program stores them inside a csv file named after that group. When the user asks for n elements back, the program will randomize and show them to the user.
 
-# Usage
+* Usage
 
 \<program name\> \<operation\> \<input parameters\>(seperated by space)
 
@@ -26,7 +26,7 @@ delete element, 2 input parameres -> \<group name\> \<element\>
 
 pull-random, 2 input parameters -> \<group name\> \<number of elements desired as an integer\>
 
-# Documentation
+* Documentation
 
 Groups are in basic terms just names for files in the system. When creating a group, a csv file will be created wth elements of each groups being appended to these files along with an id assigned to them. The first element of each of these files will always be the name of the group.
 

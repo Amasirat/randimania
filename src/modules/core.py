@@ -94,10 +94,13 @@ def access_element(group: str, id_num : int):
     dir = os.path.join(GROUP_DIR, f"{group}.csv")
     if not os.path.isfile(dir):
         raise FileNotFoundError
+# loop to find element in csv file
     with open(dir, "r") as file:
         reader = csv.DictReader(file, fieldnames=["id", "element"])
         for row in reader:
-            if row["id"] == id_num:
+            if row["id"] == "id":
+                continue
+            elif int(row["id"]) == id_num:
                 return row["element"]
     
         
