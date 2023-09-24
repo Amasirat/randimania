@@ -97,6 +97,8 @@ def parser(arguments : list):
                 raise IndexError
             else:
                 arg_delete_group(arguments[1])
+        case "delete-element":
+            pass
         case "pull-random":
             if len(arguments) != 3:
                 raise IndexError

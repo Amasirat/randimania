@@ -77,7 +77,7 @@ def return_groups() -> list:
         print("No groups exist")
     
     return groups
-       
+# delete an element given a group and id number
 # return a random element given a group
 def random_pull(group : str) -> str:
     dir = os.path.join(GROUP_DIR, f"{group}.csv")
