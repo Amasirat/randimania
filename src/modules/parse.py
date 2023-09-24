@@ -50,9 +50,11 @@ def arg_add_elements(args : list):
 # function for random-pull operation
 def arg_pull_random(group : str, loop_count : int):
     element_ids = set() # empty set that contains random id numbers
+    
     if loop_count >= core.row_counter(group):
         print("This group is not great enough to get this many random elements from it")
         return
+    
     count = 0 # loop counter
     while(count < loop_count):
         id = core.random_pull(group)
@@ -63,7 +65,7 @@ def arg_pull_random(group : str, loop_count : int):
         count += 1
         
     for id in element_ids:
-        print(core.access_element(group, id))
+        print(f"*{core.access_element(group, id)}")
 # parses arguments recieved as input
 def parser(arguments : list):
     if len(arguments) <= 0:

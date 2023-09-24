@@ -85,7 +85,7 @@ def random_pull(group : str) -> str:
         raise FileNotFoundError
 
     row_count = row_counter(group)
-    return random.randint(1, row_count)
+    return random.randint(1, row_count - 1)
 
 # given an id number it will return the element from the group
 def access_element(group: str, id_num : int) -> str:
