@@ -66,7 +66,7 @@ def show_elements(group : str):
         print(f"-{item}")
 
 # show groups
-def show_groups():
+def return_groups() -> list:
     # appending file names in global directory to groups 
     # if they are files in order to future proof
     groups = [g for g in os.listdir(GROUP_DIR) 
@@ -76,9 +76,7 @@ def show_groups():
     if not groups:
         print("No groups exist")
     
-    for item in groups:
-       group, _ =  item.split('.')
-       print(f"--{group}")
+    return groups
        
 # return a random element given a group
 def random_pull(group : str) -> str:

@@ -82,7 +82,10 @@ def parser(arguments : list):
             if len(arguments) > 1:
                 raise IndexError
             else:
-                core.show_groups()
+                groups = core.return_groups()
+                for item in groups:
+                    group, _ =  item.split('.')
+                    print(f"--{group}")
         case "show-elements":
             if len(arguments) != 2:
                 raise IndexError
