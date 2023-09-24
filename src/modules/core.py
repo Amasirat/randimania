@@ -3,7 +3,7 @@ import os
 import random
 GROUP_DIR : str = "src/groups/"
 # opening a group file
-def create_group(groupname : str):
+def create_group(groupname : str) -> None:
     dir = f"{GROUP_DIR}{groupname}.csv"
     if not os.path.isdir(GROUP_DIR):    
         os.mkdir(GROUP_DIR)
@@ -29,7 +29,7 @@ def row_counter(group) -> int:
 
 # appends an element to an existing group
 # rasies FileNotFoundError in the case where group.csv was not found
-def append_element(element: str, group : str):
+def append_element(element: str, group : str) -> None:
     dir = f"{GROUP_DIR}{group}.csv"
     row_count = row_counter(group)
 
@@ -90,7 +90,7 @@ def random_pull(group : str) -> str:
     return random.randint(1, row_count)
 
 # given an id number it will return the element from the group
-def access_element(group: str, id_num : int):
+def access_element(group: str, id_num : int) -> str:
     dir = os.path.join(GROUP_DIR, f"{group}.csv")
     if not os.path.isfile(dir):
         raise FileNotFoundError
