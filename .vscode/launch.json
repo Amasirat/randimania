@@ -11,6 +11,11 @@
             "program": "${file}",
             "console": "integratedTerminal",
             "justMyCode": true,
+            "args": [
+                "pull-random",
+                "music",
+                "2",
+            ],
         }
     ]
 }

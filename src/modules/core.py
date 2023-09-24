@@ -100,7 +100,8 @@ def access_element(group: str, id_num : int):
         for row in reader:
             if row["id"] == "id":
                 continue
-            elif int(row["id"]) == id_num:
-                return row["element"]
+        
+            if int(row["id"]) == id_num: 
+                return row["element"] 
     
         
