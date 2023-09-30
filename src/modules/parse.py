@@ -85,9 +85,12 @@ def parser(arguments : list):
                 raise IndexError
             else:
                 groups = core.return_groups()
-                for item in groups:
-                    group, _ =  item.split('.')
-                    print(f"--{group}")
+                if not groups:
+                    print("No groups exist")
+                else:    
+                    for item in groups:
+                        group, _ =  item.split('.')
+                        print(f"--{group}")
         case "show-elements":
             if len(arguments) != 2:
                 raise IndexError

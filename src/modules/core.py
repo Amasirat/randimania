@@ -72,9 +72,6 @@ def return_groups() -> list:
     groups = [g for g in os.listdir(GROUP_DIR) 
         if os.path.isfile(os.path.join(GROUP_DIR, g))
     ]
-    # if groups turns out empty
-    if not groups:
-        print("No groups exist")
     
     return groups
 # delete an element given a group and id number
