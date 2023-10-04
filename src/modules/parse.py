@@ -48,11 +48,12 @@ def arg_add_elements(args : list):
     print(f"Elements added to {group}")
 
 # function for random-pull operation
-def arg_pull_random(group : str, loop_count : int):
+def arg_pull_random(group : str, loop_count : int) -> None:
     element_ids = set() # empty set that contains random id numbers
+    # it's a set because it naturally does not include repeating numbers
     
     if loop_count >= core.row_counter(group):
-        print("This group is not great enough to get this many random elements from it")
+        print("This group is not large enough to get this many random elements from it")
         return
     
     count = 0 # loop counter
@@ -66,6 +67,16 @@ def arg_pull_random(group : str, loop_count : int):
         
     for id in element_ids:
         print(f"*{core.access_element(group, id)}")
+        
+# arg function for deleting elements
+def arg_delete_elements(group: str, id : int):
+    core.delete_element(group, id)
+        
+
+    report = "element deleted."
+
+        
+    print(report)       
 # parses arguments recieved as input
 def parser(arguments : list):
     if len(arguments) <= 0:
@@ -101,7 +112,12 @@ def parser(arguments : list):
             else:
                 arg_delete_group(arguments[1])
         case "delete-element":
-            pass
+            if len(arguments) < 3:
+                raise IndexError
+            else:
+                group = arguments[1]
+                id = int(arguments[2])
+                arg_delete_elements(group, id)
         case "pull-random":
             if len(arguments) != 3:
                 raise IndexError

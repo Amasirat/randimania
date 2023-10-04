@@ -97,6 +97,38 @@ def access_element(group: str, id_num : int) -> str:
                 continue
         
             if int(row["id"]) == id_num: 
-                return row["element"] 
+                return row["element"]
+            
+# delete element given a group and id number
+def delete_element(group: str, id : int):
+    dir = os.path.join(GROUP_DIR, f"{group}.csv")
+    if not os.path.isfile(dir):
+        raise FileNotFoundError
+# if id number is greater than the number of items in group, stop procedure
+    if row_counter(group) < id:
+        raise FileNotFoundError
     
+    items = []
+    with open(dir, "r") as file:
+        reader = csv.DictReader(file, fieldnames=["id", "element"])
+        for row in reader:
+            items.append({"id": row["id"], "element": row["element"]})
+            
+    index : int = 1 #a list of elements from groups always starts at 1
+    while index <= len(items) - 1:
+
+        if int(items[index]["id"]) == id:
+            items.remove(items[index])
+            continue
+            
+        if int(items[index]["id"]) != index:
+            items[index]["id"] = str(index)
         
+        index += 1
+    
+    with open(dir, "w") as file:
+        writer = csv.DictWriter(file, fieldnames=["id", "element"])
+        for item in items:
+            writer.writerow(item)
+
+    return items

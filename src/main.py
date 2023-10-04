@@ -17,12 +17,11 @@ def main():
             print("Invalid argument count")
             help.help()
         except FileNotFoundError:
-            print("non-existing group or directory")
+            print("non-existing group, group item or directory")
         except TypeError:
             print("Wrong type detected")
         except:
             print("unknown error occured")
-
 
 if __name__ == "__main__":
     main()
