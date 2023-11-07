@@ -72,7 +72,18 @@ def arg_pull_random(group : str, loop_count : int) -> None:
 def arg_delete_elements(group: str, id : int):
     core.delete_element(group, id)
     report = "element deleted."    
-    print(report)       
+    print(report)
+    
+# arg function for showing elements
+def arg_show_elements(group : str):
+    elements : list = core.show_elements(group)
+    
+    print(f"elements of {group}:")
+    count = 1
+    for item in elements:
+        print(f"{count}-{item}")
+        count += 1
+           
 # parses arguments recieved as input
 def parser(arguments : list):
     if len(arguments) <= 0:
@@ -101,7 +112,7 @@ def parser(arguments : list):
         case "show-elements":
             if len(arguments) != 2:
                 raise IndexError
-            core.show_elements(arguments[1])
+            arg_show_elements(arguments[1])
         case "delete-group":
             if len(arguments) != 2:
                 raise IndexError
@@ -118,5 +129,7 @@ def parser(arguments : list):
             if len(arguments) != 3:
                 raise IndexError
             arg_pull_random(arguments[1], int(arguments[2]))
+        case "help":
+            help.help()
         case _:
             help.help()

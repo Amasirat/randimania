@@ -41,7 +41,7 @@ def append_element(element: str, group : str) -> None:
         raise FileNotFoundError
 
 # show elements of a group to user
-def show_elements(group : str):
+def show_elements(group : str) -> list:
     dir = f"{GROUP_DIR}{group}.csv"
     # raise exception to caller if group file was not found
     if not os.path.isfile(dir):
@@ -60,10 +60,7 @@ def show_elements(group : str):
             if row["id"] == "id":
                 continue
             elements.append(row["element"])
-    
-    print(f"elements of {group}:")
-    for item in elements:
-        print(f"-{item}")
+    return elements
 
 # show groups
 def return_groups() -> list:
