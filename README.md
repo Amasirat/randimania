@@ -1,6 +1,6 @@
 # Randimania
 
-Simple command-line tool that randomizes n number of elements.
+Simple command-line tool that stores and randomizes n number of elements.
 
 # System
 
@@ -8,23 +8,30 @@ Randomized elements are structured as different groups. The user creates groups 
 
 # Usage
 
-\<program name\> \<operation\> \<input parameters\>(seperated by space)
+usage: \program name\ \operation\ \input parameters\(seperated by space)
 
 Operations:
+help, 0 input parameters:
+    prints help message
+add-group, 1 input parameter -> \name of group\:
+    creates a new group to add your randomizable elements, for example: add-group art
+    
+add-elements, 2 or more input parameters -> \group name\ \element 1\ \element 2\ ... \element n\:
+    adds any number of elements to a pre-existing group
 
-add-group, 1 input parameter -> \<name of group\>
+show-groups, no input parameters:
+    show current existing groups
+show-elements, 1 input parameter -> \group name\:
+    shows elements of a group unrandomized
 
-add-elements, 2 or more input parameters -> \<group name\> \<element 1\> \<element 2\> ... \<element n\>
+delete-group, 1 input parameter -> \group name\:
+    deletes an existing group, WARNING All elements related to the group will be removed forever
+    
+delete-element, 2 input parameters -> \group name\ \element\:
+    deletes an element from a particular group
 
-show-groups, no input parameters
-
-show-elements, 1 input parameter -> \<group name\>
-
-delete group, 1 input parameter -> \<group name\>
-
-delete element, 2 input parameres -> \<group name\> \<element\>
-
-pull-random, 2 input parameters -> \<group name\> \<number of elements desired as an integer\>
+pull-random, 2 input parameters -> \group name\ \number of elements desired as an integer\:
+    pulls n number of random elements from one particular group
 
 # Documentation
 
@@ -37,7 +44,7 @@ inside the src directory, there is the main.py script, which is the main program
 
 The modules package contains help, parse, and core modules.
 
-----help display's a help message on screen
+----help displays a help message on screen
 
 ----parse contains the parser() function that parses command-line arguments
 

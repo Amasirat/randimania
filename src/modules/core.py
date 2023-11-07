@@ -40,7 +40,7 @@ def append_element(element: str, group : str) -> None:
     else:
         raise FileNotFoundError
 
-# show elements of a group to user
+# returns an ordered list of elements from a group
 def show_elements(group : str) -> list:
     dir = f"{GROUP_DIR}{group}.csv"
     # raise exception to caller if group file was not found
