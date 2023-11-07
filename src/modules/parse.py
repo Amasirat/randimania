@@ -71,11 +71,7 @@ def arg_pull_random(group : str, loop_count : int) -> None:
 # arg function for deleting elements
 def arg_delete_elements(group: str, id : int):
     core.delete_element(group, id)
-        
-
-    report = "element deleted."
-
-        
+    report = "element deleted."    
     print(report)       
 # parses arguments recieved as input
 def parser(arguments : list):
