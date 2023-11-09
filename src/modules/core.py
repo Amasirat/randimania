@@ -1,12 +1,14 @@
 import csv
 import os
 import random
-GROUP_DIR : str = "src/groups/"
+homedir = os.path.expanduser("~")
+GROUP_DIR : str = os.path.join(homedir, ".config/randimania/groups/")
 # opening a group file
 def create_group(groupname : str) -> None:
     dir = f"{GROUP_DIR}{groupname}.csv"
-    if not os.path.isdir(GROUP_DIR):    
-        os.mkdir(GROUP_DIR)
+    if not os.path.isdir(GROUP_DIR):
+        print(GROUP_DIR)    
+        os.makedirs(GROUP_DIR)
     elif os.path.isfile(dir):
         raise FileExistsError
 # open a file and write the first line
@@ -97,12 +99,15 @@ def access_element(group: str, id_num : int) -> str:
                 return row["element"]
             
 # delete element given a group and id number
-def delete_element(group: str, id : int):
+def delete_element(group: str, id : int) -> None:
     dir = os.path.join(GROUP_DIR, f"{group}.csv")
     if not os.path.isfile(dir):
         raise FileNotFoundError
+# id being negative and 0 is unacceptable
+    if id <= 0:
+        raise IndexError
 # if id number is greater than the number of items in group, stop procedure
-    if row_counter(group) < id:
+    if row_counter(group) <= id:
         raise FileNotFoundError
     
     items = []
@@ -127,5 +132,3 @@ def delete_element(group: str, id : int):
         writer = csv.DictWriter(file, fieldnames=["id", "element"])
         for item in items:
             writer.writerow(item)
-
-    return items

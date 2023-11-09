@@ -70,24 +70,24 @@ def arg_pull_random(group : str, loop_count : int) -> None:
         
 # arg function for deleting elements
 def arg_delete_elements(group: str, id : int):
-    core.delete_element(group, id)
-    report = "element deleted."    
-    print(report)
+    core.delete_element(group, id)   
+    print("element deleted.")
     
 # arg function for showing elements
 def arg_show_elements(group : str):
     elements : list = core.show_elements(group)
-    
-    print(f"elements of {group}:")
-    count = 1
-    for item in elements:
-        print(f"{count}-{item}")
-        count += 1
+    if elements != None:
+        print(f"elements of {group}:")
+        count = 1
+        for item in elements:
+            print(f"{count}-{item}")
+            count += 1
            
 # parses arguments recieved as input
 def parser(arguments : list):
     if len(arguments) <= 0:
         raise IndexError # meaning list is of invalid length
+    
     match arguments[0]:
         case "add-group":
             if len(arguments) != 2:

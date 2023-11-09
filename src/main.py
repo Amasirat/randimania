@@ -12,7 +12,7 @@ def main():
         try:
             parser(sys.argv[1:])
         except IndexError:
-            print("Invalid argument count")
+            print("Invalid arguments")
             help.help()
         except FileNotFoundError:
             print("non-existing group, group item or directory")
