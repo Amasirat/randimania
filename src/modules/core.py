@@ -5,7 +5,7 @@ homedir = os.path.expanduser("~")
 GROUP_DIR : str = os.path.join(homedir, ".config/randimania/groups/")
 # opening a group file
 def create_group(groupname : str) -> None:
-    dir = f"{GROUP_DIR}{groupname}.csv"
+    dir = os.path.join(GROUP_DIR, f"{groupname}.csv")
     if not os.path.isdir(GROUP_DIR):
         print(GROUP_DIR)    
         os.makedirs(GROUP_DIR)
@@ -19,7 +19,7 @@ def create_group(groupname : str) -> None:
 # this function only counts existing rows in a csv group file, INCLUDING the 0th row
 def row_counter(group) -> int:
 # checking if directory exists
-    dir: str = f"{GROUP_DIR}{group}.csv"
+    dir: str = os.path.join(GROUP_DIR, f"{group}.csv")
     if not os.path.isfile(dir):
         raise FileNotFoundError
 # starting couting process
@@ -32,7 +32,7 @@ def row_counter(group) -> int:
 # appends an element to an existing group
 # rasies FileNotFoundError in the case where group.csv was not found
 def append_element(element: str, group : str) -> None:
-    dir = f"{GROUP_DIR}{group}.csv"
+    dir = os.path.join(GROUP_DIR, f"{group}.csv")
     row_count = row_counter(group)
 
     if os.path.isfile(dir):
@@ -44,8 +44,8 @@ def append_element(element: str, group : str) -> None:
 
 # returns an ordered list of elements from a group
 def show_elements(group : str) -> list:
-    dir = f"{GROUP_DIR}{group}.csv"
-    # raise exception to caller if group file was not found
+    dir = os.path.join(GROUP_DIR, f"{group}.csv")
+# raise exception to caller if group file was not found
     if not os.path.isfile(dir):
         raise FileNotFoundError
     
