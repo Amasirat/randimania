@@ -2,13 +2,13 @@
 # reading user's command line arguments
 import sys
 # display help message
-import modules.help as help
+from modules.help import help
 # parsing commandline arguments
 from modules.parse import parser
 
 def main():
     if len(sys.argv) <= 1:
-        help.help()
+        help()
     else:
         try:
             parser(sys.argv[1:])
