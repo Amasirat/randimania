@@ -1,4 +1,4 @@
-#!/bin/env python3
+#!/usr/bin/env python3
 # reading user's command line arguments
 import sys
 # display help message
