@@ -2,7 +2,8 @@ import csv
 import os
 import random
 homedir = os.path.expanduser("~")
-GROUP_DIR : str = os.path.join(homedir, ".config/randimania/groups/")
+PROJECT_NAME = "randimania"
+GROUP_DIR : str = os.path.join(homedir, f".config/{PROJECT_NAME}/groups/")
 # opening a group file
 def create_group(groupname : str) -> None:
     dir = os.path.join(GROUP_DIR, f"{groupname}.csv")

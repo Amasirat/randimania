@@ -50,7 +50,7 @@ pull-random, 2 input parameters -> 'group name' 'number of elements desired as a
 
 Groups are in basic terms just names for files in the system. When creating a group, a csv file will be created wth elements of each groups being appended to these files along with an id assigned to them. The first row of the csv files is "id, element".
 
-By default, these files are stored in ~/.config/groups/ directory in source file and should be in use **only** by the program. Meaning no addition or removal or any other sort of edits should be done to these files manually and the program should handle everything by itself.
+By default, these files are stored in ~/.config/randimania/groups/ directory in source file and should be in use **only** by the program. Meaning no addition or removal or any other sort of edits should be done to these files manually and the program should handle everything by itself.
 
 Project's directory structure is this:
 inside the src directory, there is the main.py script, which is the main program script. There are also the tests and modules directories. tests is delegated to unit tests and modules contains the main functionality of the program and is a package.
