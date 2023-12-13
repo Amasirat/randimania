@@ -1,7 +1,7 @@
 # core functionality of the program
 from . import core
 # to display help message
-from help import help
+from . import help
 # for path and directory management
 import os
 
@@ -130,6 +130,6 @@ def parser(arguments : list):
                 raise IndexError
             arg_pull_random(arguments[1], int(arguments[2]))
         case "help":
-            help()
+            help.help()
         case _:
-            help()
+            help.help()

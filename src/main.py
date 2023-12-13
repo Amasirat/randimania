@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
 # reading user's command line arguments
+from multiprocessing import Value
 import sys
 # display help message
-from modules.help import help
+import modules.help as help
 # parsing commandline arguments
 from modules.parse import parser
 
 def main():
     if len(sys.argv) <= 1:
-        help()
+        help.help()
     else:
         try:
             parser(sys.argv[1:])
@@ -17,8 +18,8 @@ def main():
             help.help()
         except FileNotFoundError:
             print("non-existing group, group item or directory")
-        except TypeError:
-            print("Wrong type detected")
+        except ValueError:
+            print("Wrong type gotten from user")
         except:
             print("unknown error occured")
 

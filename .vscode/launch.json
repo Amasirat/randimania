@@ -12,8 +12,9 @@
             "console": "integratedTerminal",
             "justMyCode": true,
             "args": [
-                "show-elements",
+                "delete-element",
                 "music",
+                "lkd",
             ],
         }
     ]

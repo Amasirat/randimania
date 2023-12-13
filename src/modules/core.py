@@ -53,7 +53,7 @@ def show_elements(group : str) -> list:
     # exit function if there are no elements
     if row_counter(group) == 1:
         print(f"the group '{group}' has no elements")
-        return
+        return []
     # empty list to store elements from the file
     elements = []
 
@@ -75,8 +75,8 @@ def return_groups() -> list:
     
     return groups
 # delete an element given a group and id number
-# return a random element given a group
-def random_pull(group : str) -> str:
+# return the id of a random element given a group
+def random_pull(group : str) -> int:
     dir = os.path.join(GROUP_DIR, f"{group}.csv")
     if not os.path.isfile(dir):
         raise FileNotFoundError
@@ -89,6 +89,7 @@ def access_element(group: str, id_num : int) -> str:
     dir = os.path.join(GROUP_DIR, f"{group}.csv")
     if not os.path.isfile(dir):
         raise FileNotFoundError
+    element: str = ""
 # loop to find element in csv file
     with open(dir, "r") as file:
         reader = csv.DictReader(file, fieldnames=["id", "element"])
@@ -97,7 +98,8 @@ def access_element(group: str, id_num : int) -> str:
                 continue
         
             if int(row["id"]) == id_num: 
-                return row["element"]
+                element = row["element"]
+    return element
             
 # delete element given a group and id number
 def delete_element(group: str, id : int) -> None:
