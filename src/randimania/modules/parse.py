@@ -47,7 +47,7 @@ def arg_delete_group(arg):
         match usr_input:
             case 'y':
                 os.remove(dir)
-                print("group successfuly deleted")
+                print("group successfully deleted")
                 return
             case 'n':
                 return
@@ -100,7 +100,7 @@ def arg_show_elements(group : str):
             print(f"{count}-{item}")
             count += 1
            
-# parses arguments recieved as input
+# parses arguments received as input
 def parser(arguments : list):
     if len(arguments) <= 0:
         raise IndexError # meaning list is of invalid length

@@ -4,13 +4,13 @@ Simple command-line tool that stores and randomizes any number of elements writt
 
 Currently there are no plans for windows or mac support.
 
-# System
+## System
 
 Each element is a part of a particular group which the user has to create when using the program for the first time. Then any other operations are done on elements which are a part of these groups.
 
-# Usage
+## Usage
 
-usage: 'program name' 'operation' 'input parameters'(seperated by space)
+usage: 'program name' 'operation' 'input parameters'(separated by space)
 
 Operations:
 
@@ -32,7 +32,7 @@ show-groups, no input parameters:
 
 show-elements, 1 input parameter -> 'group name':
 
-    shows elements of a group unrandomized
+    shows elements of a group non-randomized
 
 delete-group, 1 input parameter -> 'group name':
 
@@ -46,7 +46,7 @@ pull-random, 2 input parameters -> 'group name' 'number of elements desired as a
 
     pulls n number of random elements from one particular group
 
-# Documentation
+## Documentation
 
 Groups are in basic terms just names for files in the system. When creating a group, a csv file will be created wth elements of each groups being appended to these files along with an id assigned to them. The first row of the csv files is "id, element".
 
@@ -63,4 +63,4 @@ The modules package contains help, parse, and core modules.
 
 ----core contains core functionality of the program. pulling random elements, writing and reading from csv files, etc...
 
-main.py script calls parser, while parser can access core functions to perform the required fuction and then return back to caller. Suffice it to say, any error handling takes place inside the main.py script, after any exceptions are raised and through the core or parser modules reach the main.
+main.py script calls parser, while parser can access core functions to perform the required function and then return back to caller. Suffice it to say, any error handling takes place inside the main.py script, after any exceptions are raised and through the core or parser modules reach the main.
